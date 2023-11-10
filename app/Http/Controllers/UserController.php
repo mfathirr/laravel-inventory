@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use App\Models\User;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('user.detail', compact('user'));
+        $room = Room::where('user_id', $id)->get();
+        return view('user.detail', compact('user', 'room'));
     }
 
     public function edit($id)

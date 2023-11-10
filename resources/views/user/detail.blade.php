@@ -41,19 +41,23 @@
                 </div>
                 <div class="card-body">
                     <table class="table">
-
-                        <tr>
-                            <th scope="row">Nama Ruangan</th>
-                            <th>Nomor Ruangan</th>
-                        </tr>
-
-                        <tr>
-                            <td scope="row">Ruangan Gas</td>
-                            <td>Ruangan 623</td>
-                        </tr>
-
-
-                    </table>
+                            @if ($room)
+                            <tr>
+                                <th scope="row">Nama Ruangan</th>
+                                <th>Nomor Ruangan</th>
+                            </tr>
+                            @foreach ($room as $item)
+                            <tr>
+                                <td scope="row">{{ $item->nama_ruangan }}</td>
+                                <td>{{ $item->nomor_ruangan }}</td>
+                            </tr>
+                            @endforeach
+                        </table>  
+                    @else  
+                        <div class="alert alert-danger">
+                            Petugas Belum Menjadi PIC Ruangan
+                        </div>
+                    @endif
                 </div>
             </div>
             <!-- card 2 end -->

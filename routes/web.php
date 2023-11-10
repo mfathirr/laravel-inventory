@@ -15,5 +15,9 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('/', function () {
+    return redirect('user');
+});
+
 Route::resource('user', UserController::class);
 Route::resource('room', RoomController::class);
